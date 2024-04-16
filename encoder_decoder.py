@@ -108,12 +108,14 @@ def ceaser_encode(string, shift):
     for char in string :
         if char.isalpha():
             if char.islower() :
-                encode_char = chr((ord(char)-ord('a') + shift)%26 + ord("a"))
+                encode_char = chr((ord(char)-ord('a') - shift)%26 + ord("a"))
             else:
-                encode_char = chr((ord(char)+shift-ord('A'))%26 + ord("A"))
+                encode_char = chr((ord(char)-shift-ord('A'))%26 + ord("A"))
             encode_string += encode_char
+    
         else:
             encode_string += char
+    print(encode_string)
     return encode_string
 
 
@@ -175,3 +177,6 @@ class base16:
             flag += chr(int(i,2))
 
         print(flag)
+
+
+
